@@ -134,13 +134,13 @@ type SquareEvent = {kind: "square", x: number, y: number};
 type CircleEvent = {kind: "circle", radius: number}
 type ClickEvent = { radius: number}
 
-type config = EventConfig<SquareEvent | CircleEvent | ClickEvent>
+type config = EventConfig<SquareEvent | CircleEvent >
 
-type test = "kind" in typeof SquareEvent
+type test = keyof SquareEvent
 
 // 後處理
 type EventConfig2<Events> = {
-  [E in Events as ("kind" in E ? E["kind"] : E)]: (event: E) => void
+  [E in Events as (E extends {kind: string} ? E["kind"]: never)]: (event: E) => void
 }
 
 type config2 = EventConfig2<SquareEvent | CircleEvent | ClickEvent>
