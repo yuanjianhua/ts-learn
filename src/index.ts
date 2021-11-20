@@ -92,10 +92,10 @@ type EmailMessageContents = MessageOf<Email>
 
 type DogMessageContents = MessageOf<Dog>
 
-type GetReturnType<Type> = Type extends (...args: never[]) => infer Return
-  ? Return
-  : never;
-type Num = GetReturnType<(x: number) => number[]>;
-type Str = GetReturnType<(x: string) => string>;
+// type GetReturnType<Type> = Type extends (...args: never[]) => infer Return
+//   ? Return
+//   : never;
+// type Num = GetReturnType<(x: number) => number[]>;
+// type Str = GetReturnType<(x: string) => string>;
 
-type booleanV = GetReturnType<(x: boolean, y: string) => boolean>
+// type booleanV = GetReturnType<(x: boolean, y: string) => boolean>
